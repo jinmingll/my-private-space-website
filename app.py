@@ -239,4 +239,7 @@ def delete(type, item_id):
 
 # 启动应用
 if __name__ == '__main__':
-    app.run(debug=True)
+    # 适配Vercel的端口要求（从环境变量获取端口，默认5000）
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
